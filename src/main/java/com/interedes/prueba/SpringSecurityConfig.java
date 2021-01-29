@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.interedes.prueba.auth.filter.JWTAuthenticationFilter;
 import com.interedes.prueba.models.service.JpaUserDetailsService;
 
 
@@ -37,7 +36,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.authorizeRequests().antMatchers("/**").permitAll()
 		.and()
-		.addFilter(new JWTAuthenticationFilter(authenticationManager()))
 		.csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
